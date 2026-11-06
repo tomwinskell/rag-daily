@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "questions": {
+    "rag-001": {
+      "attempts": [
+        {
+          "date": "2026-11-06",
+          "grade": 3,
+          "origin": "chat-seed",
+          "note": "Solid on the first try."
+        }
+      ],
+      "box": 2,
+      "lastAsked": "2026-11-06",
+      "nextDue": "2026-11-10"
+    },
+    "rag-002": {
+      "attempts": [
+        {
+          "date": "2026-11-06",
+          "grade": 1,
+          "origin": "chat-seed",
+          "note": "Explained why the problems exist but skipped how retrieval fixes hallucination until hinted."
+        }
+      ],
+      "box": 0,
+      "lastAsked": "2026-11-06",
+      "nextDue": "2026-11-07"
+    },
+    "rag-003": {
+      "attempts": [
+        {
+          "date": "2026-11-06",
+          "grade": 1,
+          "origin": "chat-seed",
+          "note": "Needed a hint that retrieval is a separate component the LLM does not run."
+        }
+      ],
+      "box": 0,
+      "lastAsked": "2026-11-06",
+      "nextDue": "2026-11-07"
+    },
+    "rag-004": {
+      "attempts": [
+        {
+          "date": "2026-11-06",
+          "grade": 3,
+          "origin": "chat-seed",
+          "note": "Three applications with sources, correct on the first try."
+        }
+      ],
+      "box": 2,
+      "lastAsked": "2026-11-06",
+      "nextDue": "2026-11-10"
+    },
+    "ft-001": {
+      "attempts": [
+        {
+          "date": "2026-11-06",
+          "grade": 0,
+          "origin": "chat-seed",
+          "note": "Equated fine-tuning with prompt engineering and API config; the definition had to be supplied."
+        }
+      ],
+      "box": 0,
+      "lastAsked": "2026-11-06",
+      "nextDue": "2026-11-07"
+    },
+    "ft-002": {
+      "attempts": [
+        {
+          "date": "2026-11-06",
+          "grade": 1,
+          "origin": "chat-seed",
+          "note": "Good skill-vs-knowledge reasoning, but only after the definition was supplied."
+        }
+      ],
+      "box": 0,
+      "lastAsked": "2026-11-06",
+      "nextDue": "2026-11-07"
+    },
+    "code-003": {
+      "attempts": [
+        {
+          "date": "2026-11-06",
+          "grade": 1,
+          "origin": "chat-seed",
+          "note": "Got that dot product is unbounded; concluded top-K would be unchanged, missing the ranking effect of magnitude."
+        }
+      ],
+      "box": 0,
+      "lastAsked": "2026-11-06",
+      "nextDue": "2026-11-07"
+    },
+    "geo-002": {
+      "attempts": [
+        {
+          "date": "2026-11-06",
+          "grade": 1,
+          "origin": "chat-seed",
+          "note": "Mixed up which side is the spot vs the pin; it clicked after the map-and-pins explanation."
+        }
+      ],
+      "box": 0,
+      "lastAsked": "2026-11-06",
+      "nextDue": "2026-11-07"
+    },
+    "rag-005": {
+      "attempts": [],
+      "box": 0
+    },
+    "rag-006": {
+      "attempts": [],
+      "box": 0
+    },
+    "rag-007": {
+      "attempts": [],
+      "box": 0
+    },
+    "ft-003": {
+      "attempts": [],
+      "box": 0
+    },
+    "emb-001": {
+      "attempts": [],
+      "box": 0
+    },
+    "emb-002": {
+      "attempts": [],
+      "box": 0
+    },
+    "emb-003": {
+      "attempts": [],
+      "box": 0
+    },
+    "emb-004": {
+      "attempts": [],
+      "box": 0
+    },
+    "emb-005": {
+      "attempts": [],
+      "box": 0
+    },
+    "emb-006": {
+      "attempts": [],
+      "box": 0
+    },
+    "geo-001": {
+      "attempts": [],
+      "box": 0
+    },
+    "code-001": {
+      "attempts": [],
+      "box": 0
+    },
+    "code-002": {
+      "attempts": [],
+      "box": 0
+    },
+    "code-004": {
+      "attempts": [],
+      "box": 0
+    },
+    "code-005": {
+      "attempts": [],
+      "box": 0
+    },
+    "scale-001": {
+      "attempts": [],
+      "box": 0
+    },
+    "term-001": {
+      "attempts": [],
+      "box": 0
+    }
+  },
+  "pending": [],
+  "history": [],
+  "lastIngest": "2026-11-06"
+}

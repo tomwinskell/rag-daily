@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-06",
+  "note": "Grades inferred from how Tom actually did in the original RAG tutoring chats. Only questions whose outcome is visible in the transcripts are seeded; everything else starts unasked. 3 = solid first try, 1 = needed a hint or the definition, 0 = wrong and the concept had to be supplied.",
+  "attempts": [
+    { "id": "rag-001", "grade": 3, "note": "Solid on the first try." },
+    { "id": "rag-002", "grade": 1, "note": "Explained why the problems exist but skipped how retrieval fixes hallucination until hinted." },
+    { "id": "rag-003", "grade": 1, "note": "Needed a hint that retrieval is a separate component the LLM does not run." },
+    { "id": "rag-004", "grade": 3, "note": "Three applications with sources, correct on the first try." },
+    { "id": "ft-001", "grade": 0, "note": "Equated fine-tuning with prompt engineering and API config; the definition had to be supplied." },
+    { "id": "ft-002", "grade": 1, "note": "Good skill-vs-knowledge reasoning, but only after the definition was supplied." },
+    { "id": "code-003", "grade": 1, "note": "Got that dot product is unbounded; concluded top-K would be unchanged, missing the ranking effect of magnitude." },
+    { "id": "geo-002", "grade": 1, "note": "Mixed up which side is the spot vs the pin; it clicked after the map-and-pins explanation." }
+  ]
+}

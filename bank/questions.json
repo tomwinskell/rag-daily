@@ -1,0 +1,445 @@
+[
+  {
+    "id": "rag-001",
+    "topic": "rag-fundamentals",
+    "tags": ["rag-basics"],
+    "difficulty": 1,
+    "kind": "recall",
+    "prompt": "What does RAG stand for, and what are the two main steps in the process it describes?",
+    "keyPoints": [
+      "Retrieval-Augmented Generation",
+      "Step 1: retrieve documents relevant to the user's question",
+      "Step 2: give those documents to the LLM as context so it generates the answer from them"
+    ],
+    "source": "RAG fundamentals quiz, session 1 (Q1)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "rag-002",
+    "topic": "rag-fundamentals",
+    "tags": ["hallucination", "grounding"],
+    "difficulty": 2,
+    "kind": "explain",
+    "prompt": "RAG is often pitched as a fix for two specific LLM problems. Name them, and for each explain why *retrieval* helps (not just why the problem exists).",
+    "keyPoints": [
+      "Stale knowledge: models are frozen at a training cutoff; retrieval supplies current information at answer time",
+      "Hallucination: models guess to fill gaps (private or missing data); retrieved text gives them something real to ground the answer in",
+      "Mechanism: the relevant text sits in the prompt at the moment of answering, so the model doesn't rely on frozen weights alone",
+      "Bonus: grounding makes answers traceable to a source"
+    ],
+    "pitfalls": [
+      "Explaining why the problems exist (cutoffs, missing private data) but skipping how retrieval fixes them",
+      "Hallucination side is the thin one: needs the 'grounding instead of guessing' idea"
+    ],
+    "source": "RAG fundamentals quiz, session 1 (Q2, needed a hint)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "rag-003",
+    "topic": "rag-fundamentals",
+    "tags": ["retrieval-vs-generation", "open-book-analogy"],
+    "difficulty": 2,
+    "kind": "reason",
+    "prompt": "RAG is often described with an open-book exam analogy. Who is the student, what is the book, and where does the analogy break down?",
+    "keyPoints": [
+      "Student = the LLM; book = the document collection",
+      "Breakdown: the LLM never flips through the book. A separate component (embedding model + vector search) finds the pages and hands them over",
+      "Retrieval is its own stage before generation, so bad retrieval means a bad answer however good the LLM is (garbage in, garbage out)"
+    ],
+    "pitfalls": [
+      "Treating the LLM as the thing that searches the documents"
+    ],
+    "source": "RAG fundamentals quiz, session 1 (Q3, needed a hint)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "rag-004",
+    "topic": "rag-fundamentals",
+    "tags": ["rag-applications"],
+    "difficulty": 2,
+    "kind": "scenario",
+    "prompt": "Name three real-world RAG applications and, for each, say what the knowledge source is that gets retrieved from.",
+    "keyPoints": [
+      "Three distinct, plausible applications (e.g. support assistants, code or UI generation, document Q&A, internal knowledge search)",
+      "Each paired with a concrete source: FAQ/help-center articles, a component or code library, a chunked and embedded document library",
+      "Mentions that sources get chunked and embedded so they can be searched by meaning"
+    ],
+    "source": "RAG fundamentals quiz, session 1 (Q4, solid first try)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "rag-005",
+    "topic": "rag-fundamentals",
+    "tags": ["chunking", "retrieval-quality"],
+    "difficulty": 2,
+    "kind": "reason",
+    "prompt": "Why does chunking matter in a RAG pipeline? What goes wrong if chunks are too big, and what goes wrong if they are too small?",
+    "keyPoints": [
+      "Chunking decides what a 'page' looks like to the retriever: the unit that gets embedded, searched and handed to the LLM",
+      "Too big: a chunk covers several ideas so its embedding is a muddy average, and it wastes context window on irrelevant text",
+      "Too small: a chunk loses surrounding context, so it may match well but not contain enough to answer",
+      "Chunking is part of retrieval quality, not a formatting detail"
+    ],
+    "source": "RAG fundamentals quiz, session 1 (Claude's nudge after Q4)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "rag-006",
+    "topic": "rag-fundamentals",
+    "tags": ["hallucination", "retrieval-vs-generation", "thresholds"],
+    "difficulty": 3,
+    "kind": "reason",
+    "prompt": "Even with retrieval, a RAG system can still give a wrong or made-up answer. Name two distinct ways that happens.",
+    "keyPoints": [
+      "Retrieval failure: the retrieved chunks are irrelevant, weakly relevant or missing the answer, and the LLM still writes a fluent, confident answer from mediocre context",
+      "Generation failure: the right content was retrieved but the model ignores, misreads or over-extends it",
+      "Other valid modes: chunk boundaries cut the answer in half, conflicting or outdated documents, a similarity threshold that is too loose",
+      "Takeaway: failures look plausible, which is why you inspect the retrieved chunks first when debugging"
+    ],
+    "source": "Extension of RAG quiz Q3 and the vector-similarity code review (fluent answers from mediocre context)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "rag-007",
+    "topic": "rag-fundamentals",
+    "tags": ["rag-applications", "chunking", "semantic-search"],
+    "difficulty": 2,
+    "kind": "scenario",
+    "prompt": "Your document library supports keyword search ('Africa' returns documents with 'Africa' in the title) but can't answer natural-language questions. Sketch the RAG design: what gets stored, what happens when a user asks a question, and what the user gets back.",
+    "keyPoints": [
+      "Ingest: split documents into chunks, embed each chunk with an embedding model, store vectors plus metadata (source, title) in a vector store",
+      "Query time: embed the question with the same model, find the top-k most similar chunks",
+      "Generation: pass the question and retrieved chunks to an LLM, which writes the answer",
+      "Output: a summary plus the sources it came from",
+      "Why keyword search fails: it matches literal words, not meaning"
+    ],
+    "pitfalls": [
+      "Using a different embedding model for the query than for the documents"
+    ],
+    "source": "RAG fundamentals quiz, session 1 (Q4, Tom's own use case)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "ft-001",
+    "topic": "rag-vs-finetuning",
+    "tags": ["finetuning-vs-rag", "terminology"],
+    "difficulty": 2,
+    "kind": "explain",
+    "prompt": "What does 'fine-tuning' mean in machine learning, and how does it differ from prompt engineering and from RAG? Think about what happens to the model itself in each case.",
+    "keyPoints": [
+      "Fine-tuning = continuing a pretrained model's training on your own dataset, so its weights change; the result is a new version of the model",
+      "Prompt engineering / API settings: the model is unchanged, you steer it with instructions or parameters at call time",
+      "RAG: the model is unchanged, you supply documents at call time",
+      "Fine-tuning is not changing the model choice, the prompt or the config values"
+    ],
+    "pitfalls": [
+      "Equating fine-tuning with prompt engineering or tweaking API configuration",
+      "If he doesn't know a term, he should say so and ask for the definition rather than reasoning around it"
+    ],
+    "source": "RAG fundamentals quiz, session 1 (Q5, needed the definition from Claude)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "ft-002",
+    "topic": "rag-vs-finetuning",
+    "tags": ["finetuning-vs-rag"],
+    "difficulty": 3,
+    "kind": "scenario",
+    "prompt": "Give one scenario where fine-tuning beats RAG, and one where RAG beats fine-tuning. Say why in each case.",
+    "keyPoints": [
+      "Fine-tuning wins for a skill or behavior gap: consistent tone, structure or format, specialized behavior long prompts can't reliably produce; can also shorten prompts at scale",
+      "RAG wins for a knowledge gap: facts that change often, private data, or when answers need citations",
+      "Fine-tuning is a poor way to teach facts and can't say where an answer came from",
+      "They're complementary, and fine-tuning is usually the last resort because it is expensive"
+    ],
+    "pitfalls": [
+      "Giving a general opinion instead of one concrete scenario for each side"
+    ],
+    "source": "RAG fundamentals quiz, session 1 (Q5)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "ft-003",
+    "topic": "rag-vs-finetuning",
+    "tags": ["retrieval-vs-generation", "debugging", "finetuning-vs-rag"],
+    "difficulty": 2,
+    "kind": "reason",
+    "prompt": "A RAG system is giving poor answers. How do you work out whether it's a retrieval problem or a generation problem, and what would you change in each case?",
+    "keyPoints": [
+      "Look at the retrieved chunks first, before touching the model",
+      "Wrong or irrelevant chunks = retrieval problem: change chunking, the embedding model, the search strategy or the similarity threshold",
+      "Right chunks but a poor answer = generation problem: change the prompt, the model or the call settings",
+      "Fine-tuning only comes in later, if the model lacks the skill even with good context and good prompting"
+    ],
+    "source": "RAG fundamentals quiz, session 1 (Tom's own diagnostic split in Q5)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "emb-001",
+    "topic": "embeddings-similarity",
+    "tags": ["cosine-vs-dot", "similarity-scale"],
+    "difficulty": 1,
+    "kind": "recall",
+    "prompt": "What does a cosine similarity of 1.0 mean? What would 0 tell you, and what about -1?",
+    "keyPoints": [
+      "1.0: the vectors point in the same direction (maximally similar in direction)",
+      "0: orthogonal, no directional relationship",
+      "-1: opposite directions",
+      "Cosine similarity is the cosine of the angle between the vectors, not the angle itself"
+    ],
+    "pitfalls": [
+      "Saying the score 'is the angle'"
+    ],
+    "source": "RAG fundamentals quiz, session 2 (Q1) and a correction during the code review",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "emb-002",
+    "topic": "embeddings-similarity",
+    "tags": ["cosine-vs-dot", "magnitude"],
+    "difficulty": 2,
+    "kind": "explain",
+    "prompt": "Define dot product and cosine similarity, and explain how the two are related.",
+    "keyPoints": [
+      "Dot product: multiply matching coordinates and sum them",
+      "Cosine similarity: the dot product divided by the product of the two vectors' magnitudes, which equals the dot product of the normalized vectors",
+      "dot(a, b) = |a| x |b| x cos(angle), so the dot product mixes direction with magnitude and cosine isolates direction",
+      "For vectors already normalized to length 1, the two are identical"
+    ],
+    "source": "RAG fundamentals quiz, session 2 and the vector-similarity code review",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "emb-003",
+    "topic": "embeddings-similarity",
+    "tags": ["cosine-vs-dot", "magnitude", "similarity-scale"],
+    "difficulty": 2,
+    "kind": "reason",
+    "prompt": "Why do we normally prefer cosine similarity over a raw dot product for text embeddings? Can you think of a case where magnitude carries real signal?",
+    "keyPoints": [
+      "Cosine ignores magnitude, so vector length doesn't swamp the ranking when you only care about meaning (direction)",
+      "Cosine is bounded to [-1, 1], so a threshold like 0.7 means the same thing across queries and datasets",
+      "Normalizing discards magnitude on purpose",
+      "Magnitude can carry real signal in some systems, e.g. recommendations where it reflects popularity or strength of engagement"
+    ],
+    "source": "RAG fundamentals quiz, session 2",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "emb-004",
+    "topic": "embeddings-similarity",
+    "tags": ["embedding-training", "geometry"],
+    "difficulty": 3,
+    "kind": "explain",
+    "prompt": "Why do texts with similar meaning end up as nearby vectors? What in the way an embedding model is trained makes that happen?",
+    "keyPoints": [
+      "Embedding models are trained with a contrastive objective: pull the vectors of related text pairs together and push unrelated pairs apart",
+      "Nearness in the space therefore reflects meaning, because that is what the training rewarded",
+      "It is not RLHF (that is for shaping chat behavior from human preference)",
+      "Similar meaning does not require shared words, which is why this beats keyword search"
+    ],
+    "pitfalls": [
+      "Naming RLHF or 'the LLM just understands' as the reason"
+    ],
+    "source": "RAG fundamentals quiz, session 2",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "emb-005",
+    "topic": "embeddings-similarity",
+    "tags": ["similarity-scale", "intuition"],
+    "difficulty": 2,
+    "kind": "scenario",
+    "prompt": "Write two sentences you'd expect to score about 0.9 under cosine similarity with a typical text embedding model, and two you'd expect to score close to 0.1. Why those?",
+    "keyPoints": [
+      "High pair: same meaning in different words (paraphrases), e.g. 'The cat sat on the mat' / 'A feline rested on the rug'",
+      "Low pair: unrelated topics, e.g. a sentence about tax deadlines and one about volcanoes",
+      "Similarity tracks meaning, not shared words",
+      "Exact numbers depend on the model; unrelated text often doesn't score near zero or below, so thresholds need calibrating per model"
+    ],
+    "source": "RAG fundamentals quiz, session 2 (Tom's own quiz prompt)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "emb-006",
+    "topic": "embeddings-similarity",
+    "tags": ["dimensions", "terminology", "geometry"],
+    "difficulty": 2,
+    "kind": "reason",
+    "prompt": "An embedding has hundreds of dimensions. Is each dimension a labeled feature like 'royalty' or 'gender'? Explain what a dimension is and where the meaning actually lives.",
+    "keyPoints": [
+      "No: dimensions are learned coordinates, not labeled slots",
+      "A vector is one point, and the number of dimensions is its length, i.e. how many coordinates it has",
+      "Meaning lives in directions and patterns across many dimensions, not in any single one",
+      "Careful with terms: 'vector' (the point) vs 'dimension' (one coordinate/axis)"
+    ],
+    "pitfalls": [
+      "Treating each dimension as a human-readable property",
+      "Using 'vectors' and 'dimensions' interchangeably"
+    ],
+    "source": "Word-math video script session (dimensions treated as labeled slots)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "geo-001",
+    "topic": "vector-geometry",
+    "tags": ["geometry", "word-math"],
+    "difficulty": 2,
+    "kind": "explain",
+    "prompt": "Explain king - man + woman ~ queen using the 'map and pins' picture: what is a vector, what is the arithmetic doing, and what actually finds 'queen'?",
+    "keyPoints": [
+      "A vector is a spot on the map; each word is a pin",
+      "The arithmetic is a walk: start at 'king', apply the male-to-female step, and land on a spot that probably has no pin",
+      "Nearest-neighbor search with cosine similarity finds the closest pin, which is 'queen'",
+      "It's evidence the space has meaningful geometry: directions like male-to-female exist"
+    ],
+    "source": "Word-math video script session",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "geo-002",
+    "topic": "vector-geometry",
+    "tags": ["geometry", "word-math", "retrieval-vs-generation"],
+    "difficulty": 3,
+    "kind": "reason",
+    "prompt": "In RAG, what plays the role of the 'spot you land on' and what plays the role of 'queen'? What step does RAG skip compared with word math?",
+    "keyPoints": [
+      "The query's embedding is the spot you land on",
+      "Document chunks are the pins; the top-k nearest chunks are the 'queen' you find near the spot",
+      "RAG skips the arithmetic walk: the embedding model places the query on the map directly",
+      "Shared step: nearest-neighbor search by cosine similarity, and what matters is the ranking, not near vs far"
+    ],
+    "pitfalls": [
+      "Swapping the labels: calling the query the pin you find, or saying both vectors are 'a walk'"
+    ],
+    "source": "Word-math video script session (needed explanation to click)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "code-001",
+    "topic": "retrieval-pipeline-code",
+    "tags": ["sorting-order", "pipeline"],
+    "difficulty": 2,
+    "kind": "code-reading",
+    "prompt": "Here is the pipeline inside `findTopSimilarDocuments`:\n\n```ts\ndocuments\n  .map((d) => ({ document: d, similarity: cosineSimilarity(queryVector, d.embedding) }))\n  .filter((d) => d.similarity >= minSimilarity)\n  .sort((a, b) => b.similarity - a.similarity)\n  .slice(0, topK);\n```\n\nWhy must `sort` come before `slice`? What would happen if you sliced first, and would anything throw?",
+    "keyPoints": [
+      "slice takes the first K by position, so only after a descending sort are the first K the best K",
+      "Slicing first keeps K arbitrary items (input order) and then sorts just those, so the best documents can be dropped",
+      "Nothing throws: the output is plausible but silently wrong",
+      "Filtering before sorting is just cheaper; the real correctness constraint is sort-before-slice"
+    ],
+    "pitfalls": [
+      "Naming filter-before-slice as the key ordering constraint instead of sort-before-slice"
+    ],
+    "source": "Vector-similarity code review (slice-before-sort is the actual bug)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "code-002",
+    "topic": "retrieval-pipeline-code",
+    "tags": ["sorting-order", "silent-failure"],
+    "difficulty": 2,
+    "kind": "code-reading",
+    "prompt": "Someone writes the comparator as `(a, b) => a.similarity - b.similarity` in the same pipeline. What does the function now return, and why is this kind of bug hard to catch?",
+    "keyPoints": [
+      "That sorts ascending, so `slice(0, topK)` returns the K least similar documents that passed the filter",
+      "No error is thrown and the results all look 'above threshold', so the output seems reasonable",
+      "In RAG the LLM then writes a fluent answer from weak context, so the failure shows up as subtly worse answers",
+      "Catch it with a test that asserts the first result has the highest similarity"
+    ],
+    "source": "Vector-similarity code review",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "code-003",
+    "topic": "retrieval-pipeline-code",
+    "tags": ["cosine-vs-dot", "thresholds", "magnitude"],
+    "difficulty": 3,
+    "kind": "reason",
+    "prompt": "Someone swaps `cosineSimilarity` for a raw `dotProduct` in the map step, on vectors that are not normalized, and leaves `minSimilarity = 0.7` alone. What goes wrong, and does the ranking stay the same?",
+    "keyPoints": [
+      "Dot product scores are unbounded and depend on vector magnitudes, so 0.7 no longer means 'reasonably similar'",
+      "With large vectors nearly everything passes; with small vectors good matches fall below 0.7 and the list can come back empty",
+      "Ranking changes too: dot = |q| x |d| x cos(angle). |q| is the same for every document, but |d| varies, so long vectors can outrank better directional matches",
+      "'The sort works correctly' only means it orders the scores correctly, not that it ranks like cosine would",
+      "With pre-normalized vectors, dot product and cosine are identical"
+    ],
+    "pitfalls": [
+      "Concluding the top-K would be the same because sort and slice still work mechanically"
+    ],
+    "source": "Vector-similarity code review (got the first half, missed the ranking change)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "code-004",
+    "topic": "retrieval-pipeline-code",
+    "tags": ["validation", "silent-failure", "dimensions"],
+    "difficulty": 2,
+    "kind": "reason",
+    "prompt": "What does `findTopSimilarDocuments` do if a document's embedding has a different length than the query vector, say 768 vs 512 dimensions? Reason through the plausible behaviors of the similarity helper and say which are dangerous.",
+    "keyPoints": [
+      "Depends on the helper: it may throw (loud, good), or silently ignore the extra dimensions or produce NaN (dangerous)",
+      "A silently wrong score looks like any other score, so bad documents can rank high or good ones vanish with no error",
+      "Root cause is usually mixing embeddings from different models, whose spaces aren't comparable even at equal length",
+      "Fix: validate lengths match and fail loudly, and store the embedding model's id with each vector"
+    ],
+    "source": "Vector-similarity code review (Q4, parked and never answered)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "code-005",
+    "topic": "retrieval-pipeline-code",
+    "tags": ["thresholds", "hallucination"],
+    "difficulty": 2,
+    "kind": "reason",
+    "prompt": "The `minSimilarity` filter can leave you with an empty array. What should the system do then, and why is the threshold a floor rather than a quality guarantee?",
+    "keyPoints": [
+      "Handle the empty case explicitly: tell the user nothing relevant was found, or fall back to something else, rather than calling the LLM with no or weak context",
+      "Everything above 0.7 is weakly relevant at best, not necessarily good",
+      "The LLM will write a fluent, confident answer from mediocre context, so the failure looks plausible",
+      "'Irrelevant' overstates what low-scoring documents are: the risk is in the weakly relevant ones that pass"
+    ],
+    "pitfalls": [
+      "Calling the documents that pass the threshold 'irrelevant' or calling the threshold a guarantee"
+    ],
+    "source": "Vector-similarity code review (Q2)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "scale-001",
+    "topic": "retrieval-at-scale",
+    "tags": ["scale", "indexing"],
+    "difficulty": 3,
+    "kind": "reason",
+    "prompt": "`findTopSimilarDocuments` scores and sorts every document on every query. What does that cost, and how do production systems like Pinecone avoid it?",
+    "keyPoints": [
+      "Scoring every document is O(n x d) per query, and a full sort adds O(n log n)",
+      "Cheaper exact top-k: keep a heap of size k, O(n log k) instead of sorting everything",
+      "At scale, vector databases use approximate nearest neighbor indexes such as HNSW (graph-based) to avoid scanning everything",
+      "Trade-off: a small loss in recall for a large gain in speed"
+    ],
+    "source": "Vector-similarity code review (performance tradeoffs)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "term-001",
+    "topic": "terminology",
+    "tags": ["terminology", "dimensions"],
+    "difficulty": 2,
+    "kind": "explain",
+    "prompt": "In your own words, define each of these in one sentence: vector, embedding, dimension, embedding model, vector search. Say how they relate.",
+    "keyPoints": [
+      "Vector: an ordered list of numbers, a point (or direction) in space",
+      "Embedding: a vector that represents the meaning of a piece of text, produced by an embedding model",
+      "Dimension: one coordinate or axis; the count is the length of the vector",
+      "Embedding model: the neural network that maps text to vectors",
+      "Vector search: finding the stored vectors nearest to a query vector"
+    ],
+    "pitfalls": [
+      "Using 'vector' and 'dimension' loosely or interchangeably",
+      "Guessing instead of saying 'I don't know this term'"
+    ],
+    "source": "Pattern across the RAG tutoring chats (imprecise terminology)",
+    "added": "2026-11-06"
+  }
+]
