@@ -2,7 +2,9 @@
   {
     "id": "rag-001",
     "topic": "rag-fundamentals",
-    "tags": ["rag-basics"],
+    "tags": [
+      "rag-basics"
+    ],
     "difficulty": 1,
     "kind": "recall",
     "prompt": "What does RAG stand for, and what are the two main steps in the process it describes?",
@@ -17,7 +19,10 @@
   {
     "id": "rag-002",
     "topic": "rag-fundamentals",
-    "tags": ["hallucination", "grounding"],
+    "tags": [
+      "hallucination",
+      "grounding"
+    ],
     "difficulty": 2,
     "kind": "explain",
     "prompt": "RAG is often pitched as a fix for two specific LLM problems. Name them, and for each explain why *retrieval* helps (not just why the problem exists).",
@@ -37,7 +42,10 @@
   {
     "id": "rag-003",
     "topic": "rag-fundamentals",
-    "tags": ["retrieval-vs-generation", "open-book-analogy"],
+    "tags": [
+      "retrieval-vs-generation",
+      "open-book-analogy"
+    ],
     "difficulty": 2,
     "kind": "reason",
     "prompt": "RAG is often described with an open-book exam analogy. Who is the student, what is the book, and where does the analogy break down?",
@@ -55,7 +63,9 @@
   {
     "id": "rag-004",
     "topic": "rag-fundamentals",
-    "tags": ["rag-applications"],
+    "tags": [
+      "rag-applications"
+    ],
     "difficulty": 2,
     "kind": "scenario",
     "prompt": "Name three real-world RAG applications and, for each, say what the knowledge source is that gets retrieved from.",
@@ -70,7 +80,10 @@
   {
     "id": "rag-005",
     "topic": "rag-fundamentals",
-    "tags": ["chunking", "retrieval-quality"],
+    "tags": [
+      "chunking",
+      "retrieval-quality"
+    ],
     "difficulty": 2,
     "kind": "reason",
     "prompt": "Why does chunking matter in a RAG pipeline? What goes wrong if chunks are too big, and what goes wrong if they are too small?",
@@ -86,7 +99,11 @@
   {
     "id": "rag-006",
     "topic": "rag-fundamentals",
-    "tags": ["hallucination", "retrieval-vs-generation", "thresholds"],
+    "tags": [
+      "hallucination",
+      "retrieval-vs-generation",
+      "thresholds"
+    ],
     "difficulty": 3,
     "kind": "reason",
     "prompt": "Even with retrieval, a RAG system can still give a wrong or made-up answer. Name two distinct ways that happens.",
@@ -102,7 +119,11 @@
   {
     "id": "rag-007",
     "topic": "rag-fundamentals",
-    "tags": ["rag-applications", "chunking", "semantic-search"],
+    "tags": [
+      "rag-applications",
+      "chunking",
+      "semantic-search"
+    ],
     "difficulty": 2,
     "kind": "scenario",
     "prompt": "Your document library supports keyword search ('Africa' returns documents with 'Africa' in the title) but can't answer natural-language questions. Sketch the RAG design: what gets stored, what happens when a user asks a question, and what the user gets back.",
@@ -122,7 +143,10 @@
   {
     "id": "ft-001",
     "topic": "rag-vs-finetuning",
-    "tags": ["finetuning-vs-rag", "terminology"],
+    "tags": [
+      "finetuning-vs-rag",
+      "terminology"
+    ],
     "difficulty": 2,
     "kind": "explain",
     "prompt": "What does 'fine-tuning' mean in machine learning, and how does it differ from prompt engineering and from RAG? Think about what happens to the model itself in each case.",
@@ -142,7 +166,9 @@
   {
     "id": "ft-002",
     "topic": "rag-vs-finetuning",
-    "tags": ["finetuning-vs-rag"],
+    "tags": [
+      "finetuning-vs-rag"
+    ],
     "difficulty": 3,
     "kind": "scenario",
     "prompt": "Give one scenario where fine-tuning beats RAG, and one where RAG beats fine-tuning. Say why in each case.",
@@ -161,7 +187,11 @@
   {
     "id": "ft-003",
     "topic": "rag-vs-finetuning",
-    "tags": ["retrieval-vs-generation", "debugging", "finetuning-vs-rag"],
+    "tags": [
+      "retrieval-vs-generation",
+      "debugging",
+      "finetuning-vs-rag"
+    ],
     "difficulty": 2,
     "kind": "reason",
     "prompt": "A RAG system is giving poor answers. How do you work out whether it's a retrieval problem or a generation problem, and what would you change in each case?",
@@ -177,7 +207,10 @@
   {
     "id": "emb-001",
     "topic": "embeddings-similarity",
-    "tags": ["cosine-vs-dot", "similarity-scale"],
+    "tags": [
+      "cosine-vs-dot",
+      "similarity-scale"
+    ],
     "difficulty": 1,
     "kind": "recall",
     "prompt": "What does a cosine similarity of 1.0 mean? What would 0 tell you, and what about -1?",
@@ -196,7 +229,10 @@
   {
     "id": "emb-002",
     "topic": "embeddings-similarity",
-    "tags": ["cosine-vs-dot", "magnitude"],
+    "tags": [
+      "cosine-vs-dot",
+      "magnitude"
+    ],
     "difficulty": 2,
     "kind": "explain",
     "prompt": "Define dot product and cosine similarity, and explain how the two are related.",
@@ -212,7 +248,11 @@
   {
     "id": "emb-003",
     "topic": "embeddings-similarity",
-    "tags": ["cosine-vs-dot", "magnitude", "similarity-scale"],
+    "tags": [
+      "cosine-vs-dot",
+      "magnitude",
+      "similarity-scale"
+    ],
     "difficulty": 2,
     "kind": "reason",
     "prompt": "Why do we normally prefer cosine similarity over a raw dot product for text embeddings? Can you think of a case where magnitude carries real signal?",
@@ -228,7 +268,10 @@
   {
     "id": "emb-004",
     "topic": "embeddings-similarity",
-    "tags": ["embedding-training", "geometry"],
+    "tags": [
+      "embedding-training",
+      "geometry"
+    ],
     "difficulty": 3,
     "kind": "explain",
     "prompt": "Why do texts with similar meaning end up as nearby vectors? What in the way an embedding model is trained makes that happen?",
@@ -247,7 +290,10 @@
   {
     "id": "emb-005",
     "topic": "embeddings-similarity",
-    "tags": ["similarity-scale", "intuition"],
+    "tags": [
+      "similarity-scale",
+      "intuition"
+    ],
     "difficulty": 2,
     "kind": "scenario",
     "prompt": "Write two sentences you'd expect to score about 0.9 under cosine similarity with a typical text embedding model, and two you'd expect to score close to 0.1. Why those?",
@@ -263,7 +309,11 @@
   {
     "id": "emb-006",
     "topic": "embeddings-similarity",
-    "tags": ["dimensions", "terminology", "geometry"],
+    "tags": [
+      "dimensions",
+      "terminology",
+      "geometry"
+    ],
     "difficulty": 2,
     "kind": "reason",
     "prompt": "An embedding has hundreds of dimensions. Is each dimension a labeled feature like 'royalty' or 'gender'? Explain what a dimension is and where the meaning actually lives.",
@@ -283,7 +333,10 @@
   {
     "id": "geo-001",
     "topic": "vector-geometry",
-    "tags": ["geometry", "word-math"],
+    "tags": [
+      "geometry",
+      "word-math"
+    ],
     "difficulty": 2,
     "kind": "explain",
     "prompt": "Explain king - man + woman ~ queen using the 'map and pins' picture: what is a vector, what is the arithmetic doing, and what actually finds 'queen'?",
@@ -299,7 +352,11 @@
   {
     "id": "geo-002",
     "topic": "vector-geometry",
-    "tags": ["geometry", "word-math", "retrieval-vs-generation"],
+    "tags": [
+      "geometry",
+      "word-math",
+      "retrieval-vs-generation"
+    ],
     "difficulty": 3,
     "kind": "reason",
     "prompt": "In RAG, what plays the role of the 'spot you land on' and what plays the role of 'queen'? What step does RAG skip compared with word math?",
@@ -318,7 +375,10 @@
   {
     "id": "code-001",
     "topic": "retrieval-pipeline-code",
-    "tags": ["sorting-order", "pipeline"],
+    "tags": [
+      "sorting-order",
+      "pipeline"
+    ],
     "difficulty": 2,
     "kind": "code-reading",
     "prompt": "Here is the pipeline inside `findTopSimilarDocuments`:\n\n```ts\ndocuments\n  .map((d) => ({ document: d, similarity: cosineSimilarity(queryVector, d.embedding) }))\n  .filter((d) => d.similarity >= minSimilarity)\n  .sort((a, b) => b.similarity - a.similarity)\n  .slice(0, topK);\n```\n\nWhy must `sort` come before `slice`? What would happen if you sliced first, and would anything throw?",
@@ -337,7 +397,10 @@
   {
     "id": "code-002",
     "topic": "retrieval-pipeline-code",
-    "tags": ["sorting-order", "silent-failure"],
+    "tags": [
+      "sorting-order",
+      "silent-failure"
+    ],
     "difficulty": 2,
     "kind": "code-reading",
     "prompt": "Someone writes the comparator as `(a, b) => a.similarity - b.similarity` in the same pipeline. What does the function now return, and why is this kind of bug hard to catch?",
@@ -353,7 +416,11 @@
   {
     "id": "code-003",
     "topic": "retrieval-pipeline-code",
-    "tags": ["cosine-vs-dot", "thresholds", "magnitude"],
+    "tags": [
+      "cosine-vs-dot",
+      "thresholds",
+      "magnitude"
+    ],
     "difficulty": 3,
     "kind": "reason",
     "prompt": "Someone swaps `cosineSimilarity` for a raw `dotProduct` in the map step, on vectors that are not normalized, and leaves `minSimilarity = 0.7` alone. What goes wrong, and does the ranking stay the same?",
@@ -373,7 +440,11 @@
   {
     "id": "code-004",
     "topic": "retrieval-pipeline-code",
-    "tags": ["validation", "silent-failure", "dimensions"],
+    "tags": [
+      "validation",
+      "silent-failure",
+      "dimensions"
+    ],
     "difficulty": 2,
     "kind": "reason",
     "prompt": "What does `findTopSimilarDocuments` do if a document's embedding has a different length than the query vector, say 768 vs 512 dimensions? Reason through the plausible behaviors of the similarity helper and say which are dangerous.",
@@ -389,7 +460,10 @@
   {
     "id": "code-005",
     "topic": "retrieval-pipeline-code",
-    "tags": ["thresholds", "hallucination"],
+    "tags": [
+      "thresholds",
+      "hallucination"
+    ],
     "difficulty": 2,
     "kind": "reason",
     "prompt": "The `minSimilarity` filter can leave you with an empty array. What should the system do then, and why is the threshold a floor rather than a quality guarantee?",
@@ -408,7 +482,10 @@
   {
     "id": "scale-001",
     "topic": "retrieval-at-scale",
-    "tags": ["scale", "indexing"],
+    "tags": [
+      "scale",
+      "indexing"
+    ],
     "difficulty": 3,
     "kind": "reason",
     "prompt": "`findTopSimilarDocuments` scores and sorts every document on every query. What does that cost, and how do production systems like Pinecone avoid it?",
@@ -424,7 +501,10 @@
   {
     "id": "term-001",
     "topic": "terminology",
-    "tags": ["terminology", "dimensions"],
+    "tags": [
+      "terminology",
+      "dimensions"
+    ],
     "difficulty": 2,
     "kind": "explain",
     "prompt": "In your own words, define each of these in one sentence: vector, embedding, dimension, embedding model, vector search. Say how they relate.",
@@ -440,6 +520,124 @@
       "Guessing instead of saying 'I don't know this term'"
     ],
     "source": "Pattern across the RAG tutoring chats (imprecise terminology)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "rag-008",
+    "topic": "rag-fundamentals",
+    "tags": [
+      "retrieval-vs-generation",
+      "rag-basics"
+    ],
+    "difficulty": 2,
+    "kind": "explain",
+    "prompt": "Your RAG app embeds a question, finds the three closest chunks and shows them to the user. Is that RAG? What is missing, and what does the user get in a full RAG system?",
+    "keyPoints": [
+      "Retrieval alone is semantic (vector) search: it returns the matching chunks as a ranked list of results",
+      "RAG adds generation: the question and the retrieved chunks are put into the LLM's prompt as context",
+      "The LLM writes an answer grounded in those chunks, so the user gets an answer (ideally with sources) instead of a list of passages to read",
+      "Retrieval quality still caps answer quality: if the wrong chunks come back, the LLM works from the wrong context"
+    ],
+    "pitfalls": [
+      "Ending the description of RAG at 'return the closest chunks to the user' and skipping the LLM step"
+    ],
+    "source": "Word-math video review (the video's RAG section stopped at 'return them to the user')",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "geo-003",
+    "topic": "vector-geometry",
+    "tags": [
+      "geometry",
+      "word-math"
+    ],
+    "difficulty": 3,
+    "kind": "reason",
+    "prompt": "king - man + woman lands near 'queen' but not exactly on it. Give two reasons it isn't exact, and say how far you'd trust the trick as a general rule about embeddings.",
+    "keyPoints": [
+      "The male-to-female step is not one perfectly clean arrow, so the walk doesn't land exactly on any word's spot",
+      "A word's position reflects how the word is used in text, not its real-world meaning: 'queen' also appears around the band, chess and so on, which pulls it away from the clean royal-female spot",
+      "The result is a point with no pin on it, so you take the nearest word by cosine similarity, and a similarity of exactly 1.0 is essentially never reached",
+      "The trick comes from older word-embedding models such as word2vec and works approximately, on well-chosen examples. Demos typically exclude the input words, because the nearest word is often one of the inputs (e.g. 'king' itself)",
+      "It is evidence that the space has meaningful directions, not a description of how RAG retrieves"
+    ],
+    "pitfalls": [
+      "Saying 'most likely the closest point is queen' without hedging",
+      "Explaining the gap as queen having less status or power than king (a real-world claim) instead of how the word is used in text"
+    ],
+    "source": "Word-math video script session and the video review",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "emb-007",
+    "topic": "embeddings-similarity",
+    "tags": [
+      "cosine-vs-dot",
+      "geometry"
+    ],
+    "difficulty": 3,
+    "kind": "reason",
+    "prompt": "On the 'map and pins' picture, what does 'closest pin' actually mean when you use cosine similarity? How is that different from straight-line (Euclidean) distance, and when would the two give the same ranking?",
+    "keyPoints": [
+      "Cosine similarity compares the angle between two arrows drawn from the center of the map; it ignores how long the arrows are",
+      "Euclidean distance is the straight-line gap between the two points, so it is sensitive to vector length as well as direction",
+      "Two vectors can point the same way (cosine 1.0) while being far apart as points, if one is much longer",
+      "For vectors normalized to length 1, squared Euclidean distance = 2 - 2 x cosine similarity, so both metrics give the same ranking",
+      "So 'closest' must always be said with its measure: closest in angle, or closest in distance"
+    ],
+    "pitfalls": [
+      "Saying 'closest points' without saying how closeness is measured"
+    ],
+    "source": "Word-math video review (the video says 'closest point' four times and never defines it)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "emb-008",
+    "topic": "embeddings-similarity",
+    "tags": [
+      "cosine-vs-dot",
+      "magnitude"
+    ],
+    "difficulty": 2,
+    "kind": "reason",
+    "prompt": "You're given an embedding model and need to pick a similarity function for your vector index. What is the general rule, and when is the choice between cosine and dot product irrelevant?",
+    "keyPoints": [
+      "Rule of thumb: use the same similarity function the model was trained with, because that is the score its vectors were shaped to make meaningful (check the model card or docs)",
+      "Some models only specify dot product as a suitable score, so cosine wouldn't be the right choice for them",
+      "If the model was trained with cosine, you can use cosine, or normalize and use dot product: the two are mathematically equivalent",
+      "Where magnitude carries real signal (e.g. popularity in a recommender), dot product keeps it and cosine throws it away",
+      "If you don't know what the model was trained with, test candidate metrics on your own data"
+    ],
+    "pitfalls": [
+      "Describing dot product as being for 'multiple elements within a document' instead of as a score that uses vector length as a signal",
+      "Not mentioning that with pre-normalized vectors the choice makes no difference"
+    ],
+    "source": "Vector-similarity session Q4 (Tom's research from the Pinecone 'Vector Similarity Explained' article)",
+    "added": "2026-11-06"
+  },
+  {
+    "id": "emb-009",
+    "topic": "embeddings-similarity",
+    "tags": [
+      "cosine-vs-dot",
+      "magnitude",
+      "scale"
+    ],
+    "difficulty": 3,
+    "kind": "reason",
+    "prompt": "A colleague proposes: normalize every vector once when it is stored, then use plain dot product at search time. Why does that give cosine-similarity results more cheaply, what must you do to the query, and when is it the wrong move?",
+    "keyPoints": [
+      "Normalizing divides each vector by its length, so every vector has length 1 and only direction survives. Cosine then equals the dot product, which skips the magnitude calculation on every comparison",
+      "It is done once per stored vector at write time, a small cost next to embedding the text, while the savings repeat on every query against millions of vectors",
+      "Normalize the query too. If only the stored vectors are unit length, the ranking is unchanged (the query's length scales every score equally) but the scores are no longer bounded to [-1, 1], so a threshold like 0.7 stops meaning the same thing",
+      "Normalizing discards magnitude for good and nothing factors it back in. Fine when magnitude is noise (typical for text), wrong when it carries signal, e.g. popularity",
+      "Many models output already-normalized vectors, in which case there is nothing to do"
+    ],
+    "pitfalls": [
+      "Wondering whether normalizing loses magnitude or whether the magnitude is later factored back in (it is lost, and cosine ignores it anyway)",
+      "Normalizing only the stored vectors and leaving the query raw"
+    ],
+    "source": "Vector-similarity session Q4 follow-ups (Tom's normalize-at-index-time reasoning)",
     "added": "2026-11-06"
   }
 ]

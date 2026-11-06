@@ -172,6 +172,26 @@
     "term-001": {
       "attempts": [],
       "box": 0
+    },
+    "rag-008": {
+      "attempts": [],
+      "box": 0
+    },
+    "geo-003": {
+      "attempts": [],
+      "box": 0
+    },
+    "emb-007": {
+      "attempts": [],
+      "box": 0
+    },
+    "emb-008": {
+      "attempts": [],
+      "box": 0
+    },
+    "emb-009": {
+      "attempts": [],
+      "box": 0
     }
   },
   "pending": [],
