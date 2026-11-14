@@ -196,14 +196,14 @@
   },
   "pending": [
     {
-      "id": "rag-004",
-      "assigned": "2026-11-13",
-      "carried": 1
+      "id": "ft-001",
+      "assigned": "2026-11-14",
+      "carried": 0
     },
     {
-      "id": "geo-002",
-      "assigned": "2026-11-13",
-      "carried": 1
+      "id": "emb-009",
+      "assigned": "2026-11-14",
+      "carried": 0
     }
   ],
   "history": [
@@ -271,6 +271,10 @@
     {
       "date": "2026-11-14",
       "ids": [
+        "ft-001",
+        "emb-009"
+      ],
+      "skipped": [
         "rag-004",
         "geo-002"
       ]
