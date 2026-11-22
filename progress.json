@@ -196,14 +196,14 @@
   },
   "pending": [
     {
-      "id": "rag-001",
-      "assigned": "2026-11-20",
-      "carried": 1
+      "id": "code-003",
+      "assigned": "2026-11-22",
+      "carried": 0
     },
     {
-      "id": "rag-003",
-      "assigned": "2026-11-20",
-      "carried": 1
+      "id": "emb-005",
+      "assigned": "2026-11-22",
+      "carried": 0
     }
   ],
   "history": [
@@ -339,12 +339,23 @@
         "rag-001",
         "rag-003"
       ]
+    },
+    {
+      "date": "2026-11-22",
+      "ids": [
+        "code-003",
+        "emb-005"
+      ],
+      "skipped": [
+        "rag-001",
+        "rag-003"
+      ]
     }
   ],
   "lastIngest": "2026-11-06",
   "dm": {
     "channel": "D09PMJJCFS8",
-    "ts": "1795265087.303109",
-    "date": "2026-11-21"
+    "ts": "1795351528.890749",
+    "date": "2026-11-22"
   }
 }
