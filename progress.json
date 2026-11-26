@@ -197,13 +197,13 @@
   "pending": [
     {
       "id": "geo-002",
-      "assigned": "2026-11-24",
-      "carried": 1
+      "assigned": "2026-11-26",
+      "carried": 0
     },
     {
-      "id": "rag-002",
-      "assigned": "2026-11-24",
-      "carried": 1
+      "id": "ft-002",
+      "assigned": "2026-11-26",
+      "carried": 0
     }
   ],
   "history": [
@@ -375,12 +375,23 @@
         "geo-002",
         "rag-002"
       ]
+    },
+    {
+      "date": "2026-11-26",
+      "ids": [
+        "geo-002",
+        "ft-002"
+      ],
+      "skipped": [
+        "geo-002",
+        "rag-002"
+      ]
     }
   ],
   "lastIngest": "2026-11-06",
   "dm": {
     "channel": "D09PMJJCFS8",
-    "ts": "1795610738.981699",
-    "date": "2026-11-25"
+    "ts": "1795697122.672009",
+    "date": "2026-11-26"
   }
 }
